@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 
 // imports the API from the routes/api folder
 const blocks = require("./routes/api/blocks");
+const stackjoins = require("./routes/api/stackjoins");
 
 // initializes the express application
 const app = express();
@@ -27,6 +28,7 @@ mongoose
 
 // creates a route where we can interact with our API
 app.use("/api/blocks", blocks);
+app.use("/api/stackjoins", stackjoins);
 
 // sets the port number depending if we are in production or development
 const port = process.env.PORT || 5050;
