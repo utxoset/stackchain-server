@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 // imports our database credentials (stored separately for security)
 
 const db = process.env.MONGO_URI;
+console.log(db);
 
 // initializes our database using the credentials
 // mongoose.set("useFindAndModify", false);
