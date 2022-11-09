@@ -18,6 +18,7 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   if (Number.isNaN(Number(req.body.amount))) {
     console.log("Ignoring stackjoin with non-numeric amount " + req.body.amount);
+    return;
   }
   
   const newStackjoin = new Stackjoin({
