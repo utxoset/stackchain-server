@@ -43,7 +43,6 @@ router.post("/update/:id", (req, res) => {
     {
       $set: {
         height: req.body.height,
-        parent: req.body.parent,
         builder: req.body.builder,
         twitterURL: req.body.twitterURL,
       },
