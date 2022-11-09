@@ -16,6 +16,10 @@ router.get("/", (req, res) => {
 // @route POST /api/stackjoins
 // @desc Create new stackjoin (public)
 router.post("/", (req, res) => {
+  if (Number.isNaN(Number(req.body.amount))) {
+    console.log("Ignoring stackjoin with non-numeric amount " + req.body.amount);
+  }
+  
   const newStackjoin = new Stackjoin({
     amount: req.body.amount,
     miner: req.body.miner,
