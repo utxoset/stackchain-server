@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
 // imports the API from the routes/api folder
 const blocks = require("./routes/api/blocks");
@@ -17,7 +18,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // imports our database credentials (stored separately for security)
-const db = require("./config/keys").mongoURI;
+
+const db = process.env.MONGO_URI;
 
 // initializes our database using the credentials
 // mongoose.set("useFindAndModify", false);
