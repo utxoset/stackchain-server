@@ -9,6 +9,8 @@ router.get("/test", (req, res) => res.json({ msg: "backend works" }));
 // @desc Get blocks (public)
 router.get("/", (req, res) => {
   Block.find()
+    // .sort({ height: "desc" })
+    // .limit(100)
     .then((info) => res.json(info))
     .catch((err) => res.status(404).json({ msg: "no blocks found" }));
 });
@@ -22,6 +24,7 @@ router.post("/", (req, res) => {
     builder: req.body.builder,
     twitterURL: req.body.twitterURL,
     proofs: req.body.proofs,
+    text: req.body.text,
   });
 
   newBlock.save().then((info) => res.json(info));
@@ -45,6 +48,7 @@ router.post("/update/:id", (req, res) => {
         height: req.body.height,
         builder: req.body.builder,
         twitterURL: req.body.twitterURL,
+        text: req.body.text || "",
       },
     },
     { new: true }

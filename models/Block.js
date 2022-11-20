@@ -17,6 +17,12 @@ const BlockSchema = new Schema({
     type: String,
     // required: true,
   },
+  text: {
+    type: String,
+  },
+  media: {
+    type: [String],
+  },
   proofs: {
     type: [
       {
